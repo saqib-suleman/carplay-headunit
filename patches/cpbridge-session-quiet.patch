@@ -1,0 +1,76 @@
+--- a/client/src/com/cpbridge/BridgeService.java
++++ b/client/src/com/cpbridge/BridgeService.java
+@@ -78,6 +78,14 @@
+     /** Set when a link dies so waitDial() returns immediately and we re-dial. */
+     private volatile boolean mRetryNow;
+ 
++    /**
++     * After a Wi-Fi handoff the iPhone drops Bluetooth and runs CarPlay over
++     * Wi-Fi.  Until this timestamp the dialer holds off re-dialing so the single
++     * BT radio stays free for the A2DP audio workaround (the vendor receiver has
++     * no wireless audio path).  Window length: persist.cpbridge.session_quiet_ms.
++     */
++    private volatile long mQuietDialUntilMs;
++
+     private volatile BluetoothServerSocket mServerSocket;
+ 
+     private BroadcastReceiver mBtStateReceiver;
+@@ -95,6 +103,13 @@
+ 
+         @Override
+         public void onWifiSent() {
++            long quietMs = BridgeConfig.sessionQuietMs();
++            if (quietMs > 0) {
++                mQuietDialUntilMs = System.currentTimeMillis() + quietMs;
++                Cplog.i(BridgeConfig.TAG_BT, "Wi-Fi handoff done -- holding re-dial for "
++                        + quietMs + " ms so the BT radio is free for the A2DP audio"
++                        + " workaround (persist.cpbridge.session_quiet_ms)");
++            }
+             updateNotification("Wi-Fi credentials sent to iPhone");
+         }
+ 
+@@ -285,6 +300,14 @@
+                 waitDial(2000);
+                 continue;
+             }
++            long quietLeft = mQuietDialUntilMs - System.currentTimeMillis();
++            if (quietLeft > 0) {
++                Cplog.stage("a_rfcomm_connect", "post-handoff quiet: holding re-dial ~"
++                        + (quietLeft / 1000) + "s so the BT radio stays free for A2DP"
++                        + " audio (persist.cpbridge.session_quiet_ms)");
++                waitDial(quietLeft);
++                continue;
++            }
+             BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+             if (adapter == null || !adapter.isEnabled()) {
+                 Cplog.i(BridgeConfig.TAG_BT, "dialer: adapter "
+--- a/client/src/com/cpbridge/BridgeConfig.java
++++ b/client/src/com/cpbridge/BridgeConfig.java
+@@ -120,6 +120,27 @@
+         return "1".equals(v) || "true".equalsIgnoreCase(v) || "yes".equalsIgnoreCase(v);
+     }
+ 
++    /**
++     * How long (ms) to pause Bluetooth re-dialing after a Wi-Fi handoff, so the
++     * single BT radio stays free for the A2DP audio workaround while CarPlay runs
++     * over Wi-Fi.  persist.cpbridge.session_quiet_ms; default 120000 (2 min).
++     * Set 0 to restore the original continuous 5 s re-dial.  Trade-off: if a
++     * handoff silently failed, automatic retry is delayed by up to this long.
++     */
++    static long sessionQuietMs() {
++        String v = getProp("persist.cpbridge.session_quiet_ms", null);
++        if (v != null && v.length() > 0) {
++            try {
++                long ms = Long.parseLong(v.trim());
++                if (ms >= 0) {
++                    return ms;
++                }
++            } catch (NumberFormatException ignored) {
++            }
++        }
++        return 120000L;
++    }
++
+     // ------------------------------------------------------------------
+     // identity
+     // ------------------------------------------------------------------

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CarPlay</string>
+    <string name="connect_title">Connect to CarPlay</string>
+    <string name="connect_subtitle">Plug your iPhone into the USB port</string>
+    <string name="settings_hint">Open \"Head Unit Helper\" for Wireless CarPlay / Hotspot settings</string>
+    <string name="toggle_carplay">Wireless CarPlay</string>
+    <string name="toggle_hotspot">Hotspot (off = use unit Wi-Fi)</string>
+    <string name="note_carplay_on">Wireless CarPlay on</string>
+    <string name="note_carplay_off">Wireless CarPlay off — plain Bluetooth stereo</string>
+    <string name="note_reboot">Restarting to change hotspot mode…</string>
+    <string name="note_write_failed">Couldn\'t save the setting — try again</string>
+    <string name="hotspot_on_msg">Turn the hotspot ON for wireless CarPlay? The unit will restart.</string>
+    <string name="hotspot_off_msg">Turn the hotspot OFF so the unit can use Wi-Fi? The unit will restart.</string>
+    <string name="btn_restart">Restart</string>
+    <string name="btn_cancel">Cancel</string>
+</resources>

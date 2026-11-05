@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cp_bg">#FF000000</color>
+    <color name="cp_logo">#FFFFFFFF</color>
+    <color name="cp_title">#FFF5F5F7</color>
+    <color name="cp_subtitle">#FF8E8E93</color>
+</resources>

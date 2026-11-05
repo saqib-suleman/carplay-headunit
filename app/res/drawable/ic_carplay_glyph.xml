@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rounded screen outline with a play triangle -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <path
+        android:strokeColor="@color/carplay_glyph"
+        android:strokeWidth="5"
+        android:fillColor="#00000000"
+        android:pathData="M26,8 H70 A18,18 0 0 1 88,26 V70 A18,18 0 0 1 70,88 H26 A18,18 0 0 1 8,70 V26 A18,18 0 0 1 26,8 Z" />
+    <path
+        android:fillColor="@color/carplay_glyph"
+        android:pathData="M39,30 L67,48 L39,66 Z" />
+</vector>

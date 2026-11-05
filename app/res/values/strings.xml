@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CarPlay</string>
+    <string name="connect_iphone">Connect iPhone</string>
+    <string name="carplay_unavailable">CarPlay is unavailable</string>
+    <string name="notification_channel_name">CarPlay session</string>
+    <string name="notification_text">CarPlay is connected</string>
+    <string name="restart_head_unit">Restart head unit</string>
+    <string name="restart_hint">If CarPlay doesn\'t start when you plug in, restart the head unit while parked.</string>
+    <string name="restart_confirm_title">Restart the head unit?</string>
+    <string name="restart_confirm_message">Only do this while parked. The screen and reversing camera will be off for about a minute. Unplug your iPhone and plug it back in once the head unit has started.</string>
+    <string name="restart_confirm_action">Restart</string>
+    <string name="restart_cancel_action">Cancel</string>
+    <string name="restart_failed">Couldn\'t restart the head unit. Turn the car off for a few minutes instead.</string>
+</resources>

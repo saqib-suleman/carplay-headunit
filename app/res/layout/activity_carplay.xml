@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/carplay_background">
+
+    <SurfaceView
+        android:id="@+id/carplay_video_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Shown while no iPhone is connected -->
+    <LinearLayout
+        android:id="@+id/carplay_waiting_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/carplay_background"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_carplay_glyph" />
+
+        <TextView
+            android:id="@+id/carplay_waiting_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.01"
+            android:textColor="@color/carplay_secondary_text"
+            android:textSize="20sp" />
+
+        <!-- Last-resort recovery for a stuck USB connection; asks for confirmation first -->
+        <TextView
+            android:id="@+id/carplay_restart_button"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/bg_restart_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:minWidth="260dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="@string/restart_head_unit"
+            android:textColor="@color/carplay_primary_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/carplay_restart_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:maxWidth="560dp"
+            android:text="@string/restart_hint"
+            android:textColor="@color/carplay_secondary_text"
+            android:textSize="15sp" />
+    </LinearLayout>
+</FrameLayout>

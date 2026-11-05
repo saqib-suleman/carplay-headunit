@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Carplay" parent="@android:style/Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/carplay_background</item>
+        <item name="android:colorBackground">@color/carplay_background</item>
+        <item name="android:statusBarColor">@color/carplay_background</item>
+        <item name="android:navigationBarColor">@color/carplay_background</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+</resources>

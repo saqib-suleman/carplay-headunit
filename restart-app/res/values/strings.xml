@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Head Unit Helper</string>
+    <string name="title">Restart Head Unit</string>
+    <string name="subtitle">Use this if CarPlay gets stuck or the screen freezes.\nMake sure the car is parked.</string>
+    <string name="restart">Restart Now</string>
+    <string name="confirm_title">Restart head unit?</string>
+    <string name="confirm_message">The screen will go dark and the unit will reboot. Only do this while parked.</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_permission">Restart not permitted — the app needs the platform signature / REBOOT permission.</string>
+    <string name="call_status">Steering volume answers / rejects calls while ringing</string>
+    <string name="wl_toggle">Wireless CarPlay: —</string>
+    <string name="hs_toggle">Hotspot: —</string>
+    <string name="hs_on_msg">Turn the hotspot ON for wireless CarPlay? The unit will restart.</string>
+    <string name="hs_off_msg">Turn the hotspot OFF so the unit can use Wi-Fi? The unit will restart.</string>
+    <string name="restart_word">Restart</string>
+    <string name="save_failed">Couldn\'t save the setting — try again</string>
+</resources>

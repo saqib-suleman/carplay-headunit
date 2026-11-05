@@ -1,0 +1,14 @@
+package android.arch.a.a;
+
+import java.util.concurrent.Executor;
+
+/* JADX INFO: loaded from: classes.dex */
+final class c implements Executor {
+    c() {
+    }
+
+    @Override // java.util.concurrent.Executor
+    public final void execute(Runnable runnable) {
+        a.a().a(runnable);
+    }
+}

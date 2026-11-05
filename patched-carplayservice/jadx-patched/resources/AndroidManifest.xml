@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:sharedUserId="android.uid.system"
+    android:versionCode="28"
+    android:versionName="9"
+    android:compileSdkVersion="28"
+    android:compileSdkVersionCodename="9"
+    package="com.autochips.carplay"
+    platformBuildVersionCode="28"
+    platformBuildVersionName="9">
+    <uses-sdk
+        android:minSdkVersion="28"
+        android:targetSdkVersion="28"/>
+    <original-package android:name="com.autochips.carplay"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.DUMP"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
+    <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
+    <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS"/>
+    <uses-permission android:name="android.permission.MANAGE_APP_OPS_MODES"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+    <uses-permission android:name="android.permission.REAL_GET_TASKS"/>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.NET_ADMIN"/>
+    <uses-permission android:name="android.permission.NET_TUNNELING"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CONNECTIVITY_INTERNAL"/>
+    <uses-permission android:name="android.permission.TETHER_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_STACK"/>
+    <uses-permission android:name="android.permission.ACCESS_BLUETOOTH_SHARE"/>
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_ROUTING"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <application
+        android:label="CarplayService"
+        android:name="com.autochips.carplay.service.AdapterApp"
+        android:persistent="false"
+        android:process="com.autochips.carplay"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="false"
+        android:defaultToDeviceProtectedStorage="true"
+        android:directBootAware="true">
+        <service
+            android:name="com.autochips.carplay.service.CarplayService"
+            android:process="com.autochips.carplay">
+            <intent-filter>
+                <action android:name="com.autochips.carplay.ICarplay"/>
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

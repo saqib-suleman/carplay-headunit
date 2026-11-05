@@ -1,0 +1,46 @@
+# macOS and local editor files
+.DS_Store
+._*
+.idea/
+*.swp
+*.swo
+*~
+
+# Android build outputs and local SDK configuration
+build/
+.gradle/
+local.properties
+*.apk
+*.idsig
+*.class
+*.dex
+*.odex
+*.vdex
+
+# Signing keys and local secrets
+/keys/
+*.pk8
+*.keystore
+*.jks
+*.key
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Device backups, dumps, and diagnostic captures
+/backup/
+/backups/
+/survey/
+/wireless-data/
+/vendor-dump/
+/decompiled/
+*.log
+
+# Python caches and temporary files
+__pycache__/
+*.py[cod]
+*.bak
+*.tmp

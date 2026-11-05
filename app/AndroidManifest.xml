@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The head unit's CarplayService starts the system-app service that handles
+    ro.atc.carplay.client.action = com.autochips.carplay.START_CARPLAY_SERVICE.
+    build.sh renames this package to com.example at link time so the APK installs as an update to
+    the factory "Auto Dialer" system app: /system is write-protected, and only system apps are
+    found by the vendor's Intent.resolveSystemService lookup.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.autochips.carplayapp">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Granted because the app is signed with the platform key; used by the Restart head unit button. -->
+    <uses-permission android:name="android.permission.REBOOT" />
+
+    <!-- Keeps other apps from starting the session service. The vendor CarplayService runs as the
+         system uid, which ActivityManager grants every component permission. -->
+    <permission
+        android:name="com.autochips.carplayapp.permission.START_CARPLAY_SESSION"
+        android:protectionLevel="signature" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/Theme.Carplay"
+        android:allowBackup="false">
+
+        <activity
+            android:name=".CarplayActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:resizeableActivity="false"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboard|keyboardHidden|navigation|uiMode|density|locale|layoutDirection|fontScale">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".CarplayClientService"
+            android:exported="true"
+            android:permission="com.autochips.carplayapp.permission.START_CARPLAY_SESSION">
+            <intent-filter>
+                <action android:name="com.autochips.carplay.START_CARPLAY_SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

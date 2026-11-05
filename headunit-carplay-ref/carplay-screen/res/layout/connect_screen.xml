@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cp_bg">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="92dp"
+            android:layout_height="112dp"
+            android:src="@drawable/apple_logo"
+            android:tint="@color/cp_logo"
+            android:contentDescription="@string/connect_title"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/connect_title"
+            android:textColor="@color/cp_title"
+            android:textSize="32sp"
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="0.01"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/connect_subtitle"
+            android:textColor="@color/cp_subtitle"
+            android:textSize="17sp"
+            android:fontFamily="sans-serif"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/settings_hint"
+            android:textColor="@color/cp_subtitle"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"/>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="carplay_background">#FF000000</color>
+    <color name="carplay_glyph">#FFFFFFFF</color>
+    <!-- Apple's systemGray, used for secondary text on dark backgrounds -->
+    <color name="carplay_secondary_text">#FF8E8E93</color>
+    <!-- Apple's dark systemGray5 / systemGray4, for the Restart button -->
+    <color name="carplay_button_background">#FF2C2C2E</color>
+    <color name="carplay_button_background_pressed">#FF3A3A3C</color>
+    <color name="carplay_primary_text">#FFFFFFFF</color>
+</resources>

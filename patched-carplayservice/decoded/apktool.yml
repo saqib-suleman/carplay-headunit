@@ -1,0 +1,7 @@
+version: 3.0.3
+apkFileName: com.autochips.carplay.apk
+sdkInfo:
+  minSdkVersion: 29
+doNotCompress:
+- arsc
+- png

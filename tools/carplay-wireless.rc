@@ -1,0 +1,18 @@
+# Boot-time wireless CarPlay bring-up.
+#
+# NOTE: on this unit a brand-new .rc dropped into /vendor/etc/init is NOT picked up by init, and the
+# `on property:sys.boot_completed=1` trigger does not fire for a late-added action either. What works
+# is appending the service below to the vendor init file that /init.rc explicitly imports:
+#     /vendor/etc/init/hw/init.ac8257.rc      (init.${ro.hardware}.rc, ro.hardware=ac8257)
+# started via `class late_start` (init runs it directly at boot, after /data). See
+# tools/install-boot-automation.sh, which does the append. This file is kept only as the canonical
+# definition / for reference.
+#
+# Key requirements learned the hard way on this build (Android 9, Treble, SELinux permissive):
+#   - seclabel is REQUIRED or init won't register the service at all (Treble needs a resolvable domain).
+#   - seclabel u:r:init:s0 gives execute_no_trans on /vendor/bin/sh, which runs. A seclabel that needs
+#     a domain transition (e.g. u:r:su:s0) registers but silently never executes.
+service carplay_wl /vendor/bin/sh /vendor/bin/carplay-boot.sh
+    class late_start
+    seclabel u:r:init:s0
+    oneshot

@@ -1,0 +1,43 @@
+package android.support.v4.c;
+
+import android.util.Log;
+import java.io.Writer;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class g extends Writer {
+    private StringBuilder mBuilder = new StringBuilder(128);
+    private final String mTag;
+
+    public g(String str) {
+        this.mTag = str;
+    }
+
+    private void ca() {
+        if (this.mBuilder.length() > 0) {
+            Log.d(this.mTag, this.mBuilder.toString());
+            this.mBuilder.delete(0, this.mBuilder.length());
+        }
+    }
+
+    @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+    public final void close() {
+        ca();
+    }
+
+    @Override // java.io.Writer, java.io.Flushable
+    public final void flush() {
+        ca();
+    }
+
+    @Override // java.io.Writer
+    public final void write(char[] cArr, int i, int i2) {
+        for (int i3 = 0; i3 < i2; i3++) {
+            char c = cArr[i + i3];
+            if (c == '\n') {
+                ca();
+            } else {
+                this.mBuilder.append(c);
+            }
+        }
+    }
+}

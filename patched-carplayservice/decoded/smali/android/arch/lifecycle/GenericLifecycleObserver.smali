@@ -1,0 +1,10 @@
+.class public interface abstract Landroid/arch/lifecycle/GenericLifecycleObserver;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Landroid/arch/lifecycle/f;
+
+
+# virtual methods
+.method public abstract a(Landroid/arch/lifecycle/g;Landroid/arch/lifecycle/Lifecycle$Event;)V
+.end method
